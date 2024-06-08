@@ -1,4 +1,4 @@
-package ro.irian.configs;
+package hack.movielink.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;

@@ -4,6 +4,7 @@ import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
 import {GroupComponent} from "./group/group.component";
 import {GroupListComponent} from "./group-list/group-list.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'groups', pathMatch: 'full' },
@@ -12,4 +13,5 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'groups', component: GroupListComponent },
   { path: 'groups/:id', component: GroupComponent },
+  { path: 'profile', component: ProfileComponent },
 ];

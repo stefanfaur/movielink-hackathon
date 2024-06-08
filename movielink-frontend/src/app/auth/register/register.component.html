@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="register-container">
+  <mat-card>
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="register(registerForm)" #registerForm="ngForm">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput [(ngModel)]="fullName" name="fullName" required appFullNameValidator>
+          <mat-error *ngIf="registerForm.controls['fullName']?.invalid && registerForm.controls['fullName']?.touched">
+            Full name must contain at least two names with only characters.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="email" name="email" type="email" required email>
+          <mat-error *ngIf="registerForm.controls['email']?.invalid && registerForm.controls['email']?.touched">
+            Please enter a valid email.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [(ngModel)]="password" name="password" type="password" required appPasswordValidator>
+          <mat-error *ngIf="registerForm.controls['password']?.invalid && registerForm.controls['password']?.touched">
+            Password must be at least 8 characters long and contain a special symbol.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput [(ngModel)]="confirmPassword" name="confirmPassword" type="password" required>
+          <mat-error *ngIf="!passwordsMatch && registerForm.submitted">
+            Passwords must match.
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

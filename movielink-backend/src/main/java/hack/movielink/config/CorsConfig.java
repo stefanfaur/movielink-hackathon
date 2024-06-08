@@ -1,4 +1,4 @@
-package ro.irian.configs;
+package hack.movielink.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

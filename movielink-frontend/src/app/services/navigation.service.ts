@@ -27,4 +27,8 @@ export class NavigationService {
   navigateToGroup(id: number) {
     this.router.navigate(['/groups', id]);
   }
+
+  navigateToProfile() {
+    this.router.navigate(['/profile']);
+  }
 }

@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GroupService } from '../services/group.service';
+import { NavigationService } from '../services/navigation.service';
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-group-list',
-  standalone: true,
-  imports: [],
   templateUrl: './group-list.component.html',
-  styleUrl: './group-list.component.css'
+  standalone: true,
+  imports: [
+    NgForOf
+  ],
+  styleUrls: ['./group-list.component.css']
 })
-export class GroupListComponent {
+export class GroupListComponent implements OnInit {
+  groups: any[] = [];
 
+  constructor(private groupService: GroupService, private navigationService: NavigationService) {}
+
+  ngOnInit(): void {
+    this.groupService.getGroups().subscribe(groups => {
+      this.groups = groups;
+    });
+  }
+
+  navigateToGroup(groupId: number): void {
+    this.navigationService.navigateToGroup(groupId);
+  }
 }

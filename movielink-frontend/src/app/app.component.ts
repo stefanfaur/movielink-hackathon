@@ -4,6 +4,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {NgIf} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {NavigationService} from "./services/navigation.service";
+import {AuthService} from "./services/auth.service";
 
 @Component({
     selector: 'app-root',
@@ -15,11 +16,11 @@ import {NavigationService} from "./services/navigation.service";
 export class AppComponent {
     title = 'movielink-frontend';
 
-    constructor(private navigationService: NavigationService) {
+    constructor(private navigationService: NavigationService, private authService: AuthService) {
     }
 
     isAuthenticated() {
-        return true;
+        return this.authService.isAuthenticated();
     }
 
   goToLogin() {
@@ -38,4 +39,12 @@ export class AppComponent {
     this.navigationService.navigateToGroups();
   }
 
+  logout() {
+    this.authService.logout();
+    this.navigationService.navigateToLogin();
+  }
+
+  goToProfile() {
+    this.navigationService.navigateToProfile();
+  }
 }

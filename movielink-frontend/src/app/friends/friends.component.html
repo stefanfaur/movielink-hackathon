@@ -1,1 +1,15 @@
-<p>friends works!</p>
+<div class="friends-container">
+  <h2>Friends</h2>
+  <button mat-raised-button color="primary" (click)="openDialog()" >Add Friend</button>
+  <mat-card *ngFor="let friend of friends" class="friend-card">
+    <mat-card-header>
+      <mat-card-title>{{ friend.fullName }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Email:</strong> {{ friend.email }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" >Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

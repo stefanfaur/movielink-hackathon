@@ -1,0 +1,19 @@
+<!--template driven form that only has email field and submit-->
+<div class="add-friend-container">
+  <mat-card>
+    <mat-card-title>Add Friend</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="addFriend()" #addFriendForm="ngForm">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="email" name="email" type="email" required>
+        </mat-form-field>
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!addFriendForm.valid">Submit</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
